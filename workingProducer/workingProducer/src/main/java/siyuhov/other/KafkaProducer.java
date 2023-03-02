@@ -1,4 +1,4 @@
-package siyuhov;
+package siyuhov.other;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -9,13 +9,13 @@ import java.util.Date;
 @Service
 public class KafkaProducer {
 
-    private static final String TOPIC = "topic";
+    private static final String TOPIC = "test";
 
     @Autowired
-    private KafkaTemplate<String,String> kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplateString;
 
 
     public void writeMessage (String message){
-        this.kafkaTemplate.send(TOPIC, message);
+        kafkaTemplateString.send(TOPIC, message);
     }
 }
