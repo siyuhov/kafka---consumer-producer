@@ -25,7 +25,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ProducerFactory<byte[], byte[]> byteArrayProducerFactory() {
+    public ProducerFactory<String, byte[]> byteArrayProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -39,7 +39,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public KafkaTemplate<byte[], byte[]> byteArrayKafkaTemplate() {
+    public KafkaTemplate<String, byte[]> byteArrayKafkaTemplate() {
         return new KafkaTemplate<>(byteArrayProducerFactory());
     }
 }

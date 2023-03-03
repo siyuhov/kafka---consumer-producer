@@ -12,9 +12,9 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class SendFileService {
     @Autowired
-    private KafkaTemplate<byte[], byte[]> kafkaTemplateByteArray;
+    private KafkaTemplate<String, byte[]> kafkaTemplateByteArray;
 
-    private final String TOPIC = "test";
+    private final String TOPIC = "file";
 
     public void sendFile(MultipartFile file) throws IOException {
         byte[] fileContent = file.getBytes();
